@@ -244,7 +244,7 @@ public class Customer implements Serializable {
     @Transient
     public String getStatistics(){
         StringBuilder sb = new StringBuilder(this.toString());
-        sb.append("Number of orders: ").append(getNumOrders()).append("\n");
+        sb.append("\n   Number of orders: ").append(getNumOrders()).append("\n");
         orders.forEach((order) -> {
             sb.append(order.toString()).append("\n");
         });      
@@ -274,15 +274,15 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(":\n").append("name: ").append(name).append("\n").
-            append("surname: ").append(surname).append("\n").
-            append("city: ").append(city).append("\n").
-            append("address: ").append(street).append(", ").
+        sb.append("Name: ").append(name).append("\n").
+            append("Surname: ").append(surname).append("\n").
+            append("City: ").append(city).append("\n").
+            append("Address: ").append(street).append(", ").
             append(building).append("\n").
-            append("phone: ").append(phone).append("\n").
-            append("primary email: ").append(primaryEmail).append("\n");
+            append("Phone: ").append(phone).append("\n").
+            append("Primary email: ").append(primaryEmail).append("\n");
         if(secondaryEmail != null){
-           sb.append("secondary email: ").append(secondaryEmail).append("\n");
+           sb.append("Secondary email: ").append(secondaryEmail).append("\n");
         }
         return sb.toString();
     }

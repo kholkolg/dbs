@@ -9,8 +9,7 @@ package cz.cvut.fel.dbs.Entities;
 
 
 import java.io.Serializable;
-import java.util.Calendar;
-import javax.persistence.Column;
+import java.text.SimpleDateFormat;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 
 /**
  *
@@ -80,14 +78,16 @@ public class Order implements Serializable {
     public void setDestination(Location destination) {
         this.destination = destination;
     }
-
+    
+    
            
     @Override
     public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d, yyyy 'at' h:mm a");
         StringBuilder sb = new StringBuilder();
-        sb.append("from: ").append(origin.getId()).append(" to: ").
-            append(destination.getId()).append("\n").
-            append("time: ").append(id.getDateTime().toString()).append("\n");
+        sb.append(formatter.format(id.getDateTime().getTime())).append("\n").
+            append("From: ").append(origin.toString()).append("To: ").
+            append(destination.getId()).append("\n");
         //return "Order[ customer=" + customer.getFullName() + " ]";
         return sb.toString();
     }

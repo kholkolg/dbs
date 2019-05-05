@@ -28,7 +28,6 @@ import static cz.cvut.fel.dbs.utils.Regex.isNameValid;
  */
 @Entity(name= "Location")
 @Table(name= "location")
-//@SecondaryTable(name = "station")
 @NamedQuery(name = "Location.findAll", query= "select l from Location l") //@NamedQueries((@NamedQuery...),.. )
 public class Location implements Serializable {
     
@@ -108,8 +107,9 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(this.getClass().getSimpleName());
-        sb.append(":\n").append("longitude: ").append(longitude).append("\n").
+        StringBuilder sb = new StringBuilder();
+        sb.append("OSM ID: ").append(id).append("\n").
+            append("longitude: ").append(longitude).append("\n").
             append("latitude: ").append(latitude).append("\n");
         if(name != null){
             sb.append("name: ").append(name).append("\n");
