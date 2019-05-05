@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="customerFormVBox" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.CustomerFormController">
+       <children>
+      <HBox prefHeight="75.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="Name*" textFill="#871414" />
+                  <TextField fx:id="customerNameTextField" prefHeight="35.0" prefWidth="300.0">
+                     <VBox.margin>
+                        <Insets left="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="City*" textFill="#871414" />
+                  <TextField fx:id="customerCityTextField" prefHeight="35.0" prefWidth="300.0">
+                     <VBox.margin>
+                        <Insets right="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="75.0" prefWidth="600.0" spacing="10.0">
+        <children>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER"  prefHeight="25.0" prefWidth="300.0" text="Surname*" textFill="#871414" />
+                  <TextField fx:id="customerSurnameTextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets left="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER"  prefHeight="25.0" prefWidth="300.0" text="Street*" textFill="#871414" />
+                  <TextField fx:id="customerStreetTextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets right="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="75.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER"  prefHeight="25.0" prefWidth="300.0" text="Pnone*" textFill="#871414" />
+                  <TextField fx:id="customerPhoneTextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets left="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER"  prefHeight="25.0" prefWidth="300.0" text="Building*" textFill="#871414" />
+                  <TextField fx:id="customerBuildingTextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets right="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="75.0" prefWidth="600.0" spacing="10.0">
+         <children>
+           <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="Primary email*" textFill="#871414"/>                  <TextField fx:id="customerEmail1TextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets left="10"/>
+                     </VBox.margin></TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="75.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER"  prefHeight="25.0" prefWidth="300.0" text="Secondary email"/>
+                  <TextField fx:id="customerEmail2TextField" prefHeight="35.0" prefWidth="300.0">
+                      <VBox.margin>
+                        <Insets right="10.0"/>
+                     </VBox.margin></TextField>
+               </children></VBox>
+         </children>
+      </HBox>
+      
+      
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="50.0">
+         <children>
+            <Button fx:id="customerCancelButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="Cancel" />
+            <Button id="customerSaveButton" fx:id="customerSaveButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="Save" />
+         </children></HBox>
+   </children>
+</VBox>

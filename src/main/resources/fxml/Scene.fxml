@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="cz.cvut.fel.dbs.FXMLController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.SceneController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="400.0">
+         <children>
+            <TextArea id="leftTextArea" fx:id="leftTextArea" editable="false" prefHeight="364.0" prefWidth="206.0" promptText="Hello, World"/>
+            <Label id="leftLabel" fx:id="leftLabel" prefHeight="33.0" prefWidth="218.0" text="Label1" textAlignment="CENTER" />
+         </children>
+      </VBox>
+      <VBox prefHeight="800.0" prefWidth="800.0">
+         <children>
+         <TabPane id="tabPane" fx:id="tabPane" prefHeight="600.0" prefWidth="800.0">
+<!--       <tabs>
+        <Tab text="Customers">
+            <fx:include fx:id="customerView" source="CustomerView.fxml"/>
+        </Tab>
+        <Tab text="Locations">
+            <fx:include fx:id="locationView" source="LocationView.fxml"/>
+        </Tab>
+    </tabs>-->
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+   </TabPane>
+          <HBox prefHeight="78.0" prefWidth="800.0">
+            <children>
+               <TextArea id="lowerTextArea" fx:id="lowerTextArea" prefHeight="78.0" prefWidth="953.0" promptText="customer text area" />
+            </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+           <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="60.0" prefWidth="931.0" spacing="10.0">
+            <children>
+               <Button id="button1" fx:id="button1" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="BUTTON1" textAlignment="CENTER">
+   
+            </Button>
+               <Button id="button2" fx:id="button2" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="BUTTON2" textAlignment="CENTER">
+
+            </Button>
+               <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="36.0" />
+               <Button id="searchButton" fx:id="searchButton" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="SEARCH" textAlignment="CENTER">
+    
+            </Button>
+               <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="35.0" />
+                   <Button id="createButton" fx:id="createButton" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="CREATE" textAlignment="CENTER">
+            </Button>
+               <Button id="editButton" fx:id="editButton" alignment="CENTER" layoutX="60.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="EDIT" textAlignment="CENTER">
+  
+    
+            </Button>
+               <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="DELETE" textAlignment="CENTER">
+
+            </Button>
+            </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </VBox.margin>
+   
+   
+           </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

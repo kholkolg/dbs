@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="locationView" fx:id="locationView" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.LocationViewController">
+   <children>
+     <TableView id="locationTable" fx:id="locationTable" editable="true" prefHeight="600.0" prefWidth="770.0">
+            <columns>
+                <TableColumn id="locationIdCol" fx:id="locationIdCol" editable="false" prefWidth="100.0" text="OSM Id" />
+                <TableColumn id="locationNameCol" fx:id="locationNameCol" prefWidth="100.0" text="Name" />
+                <TableColumn id="locationCoordinatesCol" fx:id="locationCoordinatesCol" prefWidth="200.0" text="Coordinates" />
+              </columns>
+        </TableView>
+    </children>
+</VBox>
