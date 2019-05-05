@@ -241,6 +241,7 @@ public class Customer implements Serializable {
         return surname + ", " + name;
     }
     
+    @Transient
     public String getStatistics(){
         StringBuilder sb = new StringBuilder(this.toString());
         sb.append("Number of orders: ").append(getNumOrders()).append("\n");
