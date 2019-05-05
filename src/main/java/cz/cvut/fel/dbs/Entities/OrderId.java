@@ -25,6 +25,9 @@ public class OrderId implements Serializable {
     private Long customerId;
      
     private Calendar dateTime;
+
+    public OrderId() {
+    }
  
     public OrderId(Long customerId, Calendar dateTime) {
         this.customerId = customerId;

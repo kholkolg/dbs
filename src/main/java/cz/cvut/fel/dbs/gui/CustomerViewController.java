@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -40,6 +41,9 @@ public class CustomerViewController extends ViewController<Customer> {
 
     @FXML
     private TableColumn<Customer, String> customerEmailCol;
+    
+    @FXML
+    private TableColumn<Customer, Integer> customerOrdersCol;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -50,6 +54,7 @@ public class CustomerViewController extends ViewController<Customer> {
      }
 
     private void initColumns() {
+
         LOGGER.finer("Customer table columns init");
 
         customerTable.setPlaceholder(new Label("Table is empty."));
@@ -64,7 +69,8 @@ public class CustomerViewController extends ViewController<Customer> {
 
         customerAddressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        // customerOrdersCol.setCellValueFactory(new PropertyValueFactory("numOrders"));
+        customerOrdersCol.setCellValueFactory(new PropertyValueFactory("numOrders"));
+        
         LOGGER.finer(customerTable.getColumns().toString());
     }
 

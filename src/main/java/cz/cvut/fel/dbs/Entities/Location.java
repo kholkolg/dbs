@@ -38,9 +38,9 @@ public class Location implements Serializable {
 
     private Long id;
     
-    private Double lon;
+    private Double longitude;
     
-    private Double lat;
+    private Double latitude;
     
     private String name;
 
@@ -54,22 +54,22 @@ public class Location implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "longitude", nullable = false)
+    @Column( nullable = false)
     public Double getLongitude() {
-        return lon;
+        return longitude;
     }
 
     public void setLongitude(Double lon) {
-        this.lon = lon;
+        this.longitude = lon;
     }
     
-    @Column(name = "latitude", nullable = false)
+    @Column(nullable = false)
     public Double getLatitude() {
-        return lat;
+        return latitude;
     }
 
     public void setLatitude(Double lat) {
-        this.lat = lat;
+        this.latitude = lat;
     }
 
     @Column(name = "location_name", nullable = true)  
@@ -83,10 +83,9 @@ public class Location implements Serializable {
     
     @Transient
     public String getCoordinates(){
-        return lon.toString() +", "+ lat.toString();
+        return longitude.toString() +", "+ latitude.toString();
     }
    
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -110,8 +109,8 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(this.getClass().getSimpleName());
-        sb.append(":\n").append("longitude: ").append(lon).append("\n").
-            append("latitude: ").append(lat).append("\n");
+        sb.append(":\n").append("longitude: ").append(longitude).append("\n").
+            append("latitude: ").append(latitude).append("\n");
         if(name != null){
             sb.append("name: ").append(name).append("\n");
         }

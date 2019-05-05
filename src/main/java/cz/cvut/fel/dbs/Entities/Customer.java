@@ -12,16 +12,11 @@ import java.io.Serializable;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,6 +25,10 @@ import javax.persistence.Transient;
 import static cz.cvut.fel.dbs.utils.Regex.isEmailValid;
 import static cz.cvut.fel.dbs.utils.Regex.isNameValid;
 import static cz.cvut.fel.dbs.utils.Regex.isPhoneValid;
+import java.util.HashSet;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -66,6 +65,8 @@ public class Customer implements Serializable {
     private String primaryEmail;
 
     private String secondaryEmail;
+    
+    private Set<Order> orders;
      
 
     public Customer() {
@@ -83,6 +84,7 @@ public class Customer implements Serializable {
         this.building = building;
         this.primaryEmail = email1;
         this.secondaryEmail = email2;
+        this.orders = new HashSet<>();
         LOGGER.log(Level.FINER, "new customer {0}", this);
     }
     
@@ -174,7 +176,7 @@ public class Customer implements Serializable {
         }
     }
       
-    @Column(name = "city", nullable = false)
+    @Column(nullable = false)
     public String getCity() {
         return city;
     }
@@ -183,11 +185,11 @@ public class Customer implements Serializable {
         if(isNameValid(city)){
             this.city = city;
         }else{
-            DataValidationAlert alert = new DataValidationAlert(this.getClass(), "city", city);
+            new DataValidationAlert(this.getClass(), "city", city);
         }
     }
     
-    @Column(name = "street", nullable = false)
+    @Column(nullable = false)
     public String getStreet() {
         return street;
     }
@@ -196,7 +198,7 @@ public class Customer implements Serializable {
         this.street = street;
     }
     
-    @Column(name = "building", nullable = false)
+    @Column(nullable = false)
     public String getBuilding() {
         return building;
     }
@@ -205,14 +207,47 @@ public class Customer implements Serializable {
         this.building = building;
     }
     
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Order> getOrders(){
+        return orders;
+    }
+    
+    public void setOrders(Set<Order> orders){
+        this.orders = orders;        
+    }    
+    
+    public void addOrder(Order order){
+        order.setCustomer(this);
+        this.orders.add(order);
+    }
+    
+    public void removeOrder(Order order){
+        this.orders.remove(order);
+        order.setCustomer(null);
+    }
+    
+    @Transient
+    public Integer getNumOrders(){
+        return this.orders.size();
+    }
+    
     @Transient
     public String getAddress() {
-        return city+ " " + street + " " + building;
+        return street + " " + building+ ", " + city;
     }
     
     @Transient
     public String getFullName() {
-        return name + " " + surname;
+        return surname + ", " + name;
+    }
+    
+    public String getStatistics(){
+        StringBuilder sb = new StringBuilder(this.toString());
+        sb.append("Number of orders: ").append(getNumOrders()).append("\n");
+        orders.forEach((order) -> {
+            sb.append(order.toString()).append("\n");
+        });      
+        return sb.toString();
     }
         
     @Override
@@ -237,7 +272,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(this.getClass().getSimpleName());
+        StringBuilder sb = new StringBuilder();
         sb.append(":\n").append("name: ").append(name).append("\n").
             append("surname: ").append(surname).append("\n").
             append("city: ").append(city).append("\n").

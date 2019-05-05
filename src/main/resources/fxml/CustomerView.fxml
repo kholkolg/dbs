@@ -7,15 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox id="customerView" fx:id="customerView" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.CustomerViewController">
+<VBox id="customerView" fx:id="customerView" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.CustomerViewController">
     <children>
-        <TableView id="customerTable" fx:id="customerTable" editable="true" prefHeight="600.0" prefWidth="800.0">
+        <TableView id="customerTable" fx:id="customerTable" editable="true" prefHeight="600.0" prefWidth="1000.0">
             <columns>
-                <TableColumn id="customerIdCol" fx:id="customerIdCol" editable="false" prefWidth="20.0" text="Id" />
-                <TableColumn id="customerNameCol" fx:id="customerNameCol" prefWidth="150.0" text="Name" />
-                <TableColumn id="customerPhoneCol" fx:id="customerPhoneCol" prefWidth="100.0" text="Phone" />
-                <TableColumn id="customerAddressCol" fx:id="customerAddressCol" prefWidth="200.0" text="Address" />
-                <TableColumn id="customerEmailCol" fx:id="customerEmailCol" prefWidth="200.0" text="Email" />
+                <TableColumn id="customerIdCol" fx:id="customerIdCol" editable="false" maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" text="Id" />
+                <TableColumn id="customerNameCol" fx:id="customerNameCol" maxWidth="-1.0" minWidth="100.0" prefWidth="300.0" text="Name" />
+                <TableColumn id="customerPhoneCol" fx:id="customerPhoneCol" maxWidth="-1.0" minWidth="100.0" prefWidth="200.0" text="Phone" />
+                <TableColumn id="customerAddressCol" fx:id="customerAddressCol" maxWidth="-1.0" minWidth="100.0" prefWidth="300.0" text="Address" />
+                <TableColumn id="customerEmailCol" fx:id="customerEmailCol" maxWidth="-1.0" minWidth="200.0" prefWidth="300.0" text="Email" />
+            <TableColumn id="customerOrdersCol" fx:id="customerOrdersCol" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Orders" />
             </columns>
         </TableView>
     </children>

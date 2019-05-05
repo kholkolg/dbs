@@ -31,7 +31,7 @@ public class MainApp extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerForm.fxml"));
+
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
         LOGGER.log(Level.FINER, "fxml root loaded{0}", root.toString());
         Scene scene = new Scene(root);

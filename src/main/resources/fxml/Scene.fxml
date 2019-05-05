@@ -7,17 +7,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.SceneController">
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.cvut.fel.dbs.gui.SceneController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="400.0">
+      <VBox>
          <children>
-            <TextArea id="leftTextArea" fx:id="leftTextArea" editable="false" prefHeight="364.0" prefWidth="206.0" promptText="Hello, World"/>
-            <Label id="leftLabel" fx:id="leftLabel" prefHeight="33.0" prefWidth="218.0" text="Label1" textAlignment="CENTER" />
+            <TextArea id="leftTextArea" fx:id="leftTextArea" editable="false" minHeight="400.0" minWidth="100.0" prefHeight="600.0" prefWidth="350.0" promptText="Hello, World" />
+            <Label id="leftLabel" fx:id="leftLabel" text="Label1" textAlignment="CENTER" />
          </children>
       </VBox>
-      <VBox prefHeight="800.0" prefWidth="800.0">
+      <VBox>
          <children>
-         <TabPane id="tabPane" fx:id="tabPane" prefHeight="600.0" prefWidth="800.0">
+         <TabPane id="tabPane" fx:id="tabPane" minHeight="400.0" minWidth="600.0" prefHeight="600.0" prefWidth="1000.0">
 <!--       <tabs>
         <Tab text="Customers">
             <fx:include fx:id="customerView" source="CustomerView.fxml"/>
@@ -30,15 +30,15 @@
                   <Insets />
                </VBox.margin>
    </TabPane>
-          <HBox prefHeight="78.0" prefWidth="800.0">
+          <HBox minHeight="100.0" minWidth="1000.0">
             <children>
-               <TextArea id="lowerTextArea" fx:id="lowerTextArea" prefHeight="78.0" prefWidth="953.0" promptText="customer text area" />
+               <TextArea id="lowerTextArea" fx:id="lowerTextArea" minHeight="50.0" minWidth="600.0" prefHeight="100.0" prefWidth="1000.0" promptText="customer text area" />
             </children>
                <VBox.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-           <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="60.0" prefWidth="931.0" spacing="10.0">
+           <HBox alignment="CENTER_LEFT" fillHeight="false" minHeight="50.0" minWidth="600.0" prefHeight="100.0" prefWidth="1000.0" spacing="10.0">
             <children>
                <Button id="button1" fx:id="button1" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="118.0" text="BUTTON1" textAlignment="CENTER">
    

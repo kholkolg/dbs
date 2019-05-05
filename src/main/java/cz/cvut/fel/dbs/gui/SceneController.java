@@ -30,6 +30,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -126,6 +127,19 @@ public class SceneController implements Initializable{
         } catch (Exception ex) {
             LOGGER.severe(ex.toString());
         }
+        activeClass = entityClass;              
+        ((ViewController)getCtrl("view")).getTable().setRowFactory(tv -> {
+            TableRow row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (activeClass == Customer.class && event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    
+                    Customer entity = Customer.class.cast(row.getItem());
+                    leftTextArea.clear();
+                    leftTextArea.appendText(entity.getStatistics());
+                }
+            });
+            return row ;
+        });
     }
     
     private void initForm(Class entityClass){

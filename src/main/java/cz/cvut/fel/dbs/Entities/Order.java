@@ -9,13 +9,13 @@ package cz.cvut.fel.dbs.Entities;
 
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Calendar;
-import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -35,7 +35,7 @@ public class Order implements Serializable {
     
     private Customer customer;
 
-    private Calendar dateTime;
+    //private Calendar dateTime;
     
     private Location origin;
  
@@ -51,8 +51,8 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    @OneToOne
-    @JoinColumn(name = "customer", referencedColumnName="customer_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="customer_id", insertable = false, updatable = false)
     public Customer getCustomer() {
         return customer;
     }
@@ -60,20 +60,9 @@ public class Order implements Serializable {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-        
-   // @Column(name = "demand_ts")
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP) // or Calendar
-    public Calendar getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(Calendar dateTime) {
-        this.dateTime = dateTime;
-    }
     
     @OneToOne
-    @JoinColumn(name = "osm_id1", referencedColumnName="osm_id")
-    //@AttributeOverride(name="osm_id", column=@Column(name="osm_id2"))
+    @JoinColumn(name = "start_osm_id", referencedColumnName="osm_id")
     public Location getOrigin() {
         return origin;
     }
@@ -83,8 +72,7 @@ public class Order implements Serializable {
     }
    
     @OneToOne
-    @JoinColumn(name = "osm_id2", referencedColumnName="osm_id")
-   // @AttributeOverride(name="osm_id", column=@Column(name="osm_id1"))
+    @JoinColumn(name = "end_osm_id", referencedColumnName="osm_id")
     public Location getDestination() {
         return destination;
     }
@@ -94,10 +82,25 @@ public class Order implements Serializable {
     }
 
            
-   
     @Override
     public String toString() {
-        return "Order[ customer=" + customer.getFullName() + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("from: ").append(origin.getId()).append(" to: ").
+            append(destination.getId()).append("\n").
+            append("time: ").append(id.getDateTime().toString()).append("\n");
+        //return "Order[ customer=" + customer.getFullName() + " ]";
+        return sb.toString();
     }
     
 }
+
+
+        
+//    @Temporal(javax.persistence.TemporalType.TIMESTAMP) // or Calendar
+//    public Calendar getDateTime() {
+//        return dateTime;
+//    }
+//
+//    public void setDateTime(Calendar dateTime) {
+//        this.dateTime = dateTime;
+//    }
